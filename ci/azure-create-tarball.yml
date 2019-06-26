@@ -1,5 +1,5 @@
 parameters:
-  artifacts: 'target/release/wrangler'
+  artifacts: 'target/release/codeowners-enforcer'
   name: ''
 
 steps:

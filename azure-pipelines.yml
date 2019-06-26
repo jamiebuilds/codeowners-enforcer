@@ -62,7 +62,7 @@ jobs:
         displayName: "Install musl-tools"
       - script: |
           set -ex
-          cargo build --target x86_64-unknown-linux-musl --features vendored-openssl --release
+          cargo build --target x86_64-unknown-linux-musl --release
       - template: ci/azure-create-tarball.yml
         parameters:
           artifacts: target/x86_64-unknown-linux-musl/release/codeowners-enforcer
