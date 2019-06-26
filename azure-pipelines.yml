@@ -124,8 +124,7 @@ jobs:
             name=codeowners-enforcer-$ref-$target
             mkdir -p tmp/$name
             cp README.md \
-              LICENSE-MIT \
-              LICENSE-APACHE \
+              LICENSE \
               tmp/$src/codeowners-enforcer* \
               tmp/$name/
             chmod +x tmp/$name/codeowners-enforcer*
