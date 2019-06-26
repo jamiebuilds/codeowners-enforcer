@@ -81,7 +81,6 @@ fn codeowners_enforcer(
 }
 
 fn main() -> Result<(), Box<dyn Error>> {
-
     // Definition of CLI (https://docs.rs/clap/2.33.0/clap/)
     let matches = App::new("codeowners-enforcer")
         .version(crate_version!())
