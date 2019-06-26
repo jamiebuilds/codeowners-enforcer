@@ -115,11 +115,13 @@ jobs:
           set -ex
           mkdir -p gh-release
           find .
-          tag=`git describe --tags`
+          tag=$(git tag -l --points-at HEAD)
+          sha=$(git rev-parse --short HEAD)
+          ref=${tag:-$sha}
           mk() {
             target=$1
             src=$2
-            name=codeowners-enforcer-$tag-$target
+            name=codeowners-enforcer-$ref-$target
             mkdir -p tmp/$name
             cp README.md \
               LICENSE-MIT \
@@ -132,7 +134,7 @@ jobs:
           mk x86_64-unknown-linux-musl linux
           mk x86_64-apple-darwin darwin
           mk x86_64-pc-windows-msvc windows
-          mv -v tmp/codeowners-enforcer/* gh-release/codeowners-enforcer-$tag.tar.gz
+          mv -v tmp/codeowners-enforcer/* gh-release/codeowners-enforcer-$ref.tar.gz
         displayName: "prepare the github releases tarball artifacts"
       - task: PublishPipelineArtifact@0
         displayName: "publish gh_release artifact"
