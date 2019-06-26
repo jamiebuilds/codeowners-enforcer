@@ -1,0 +1,38 @@
+{
+  "name": "codeowners-enforcer",
+  "version": "0.1.0",
+  "description": "Enforce CODEOWNERS files on your repo",
+  "author": "Jamie Kyle <me@thejameskyle.com>",
+  "license": "MIT",
+  "keywords": [
+    "codeowners",
+    "owners",
+    "code",
+    "github",
+    "enforce",
+    "enforcer",
+    "files",
+    "all",
+    "require",
+    "lint",
+    "linter",
+    "validate",
+    "validator",
+    "precommit",
+    "prepush",
+    "git",
+    "hook",
+    "hooks"
+  ],
+  "repository": "jamiebuilds/codeowners-enforcer",
+  "bin": {
+    "codeowners-enforcer": "./target/release/codeowners-enforcer"
+  },
+  "files": [
+    "./target/release/codeowners-enforcer"
+  ],
+  "scripts": {
+    "version": "./scripts/version.sh"
+  },
+  "dependencies": {}
+}
