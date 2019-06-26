@@ -54,7 +54,6 @@ fn codeowners_enforcer(
         .git_global(false)
         .overrides(overrides)
         .build()
-        .into_iter()
         .filter_map(Result::ok);
 
     let mut unowned_files = vec![];
@@ -68,15 +67,14 @@ fn codeowners_enforcer(
         let path = file.into_path();
         let owners = codeowners.of(&path); // Find the owner of the file
 
-        match owners {
-            None => unowned_files.push(path),
-            _ => {}
+        if owners.is_none() {
+            unowned_files.push(path);
         }
     }
 
     Ok(EnforcerResult {
-        config_path: config_path,
-        unowned_files: unowned_files,
+        config_path,
+        unowned_files,
     })
 }
 
