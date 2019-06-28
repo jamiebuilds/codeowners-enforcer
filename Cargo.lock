@@ -78,7 +78,7 @@ dependencies = [
 
 [[package]]
 name = "codeowners-enforcer"
-version = "0.1.0"
+version = "1.0.0"
 dependencies = [
  "ansi_term 0.11.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "clap 2.33.0 (registry+https://github.com/rust-lang/crates.io-index)",
