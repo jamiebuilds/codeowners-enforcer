@@ -1,7 +1,7 @@
 [package]
 name = "codeowners-enforcer"
 description = "Enforce CODEOWNERS files on your repo"
-version = "1.0.2" # generated
+version = "1.0.3" # generated
 homepage = "https://github.com/jamiebuilds/codeowners-enforcer"
 repository = "https://github.com/jamiebuilds/codeowners-enforcer"
 authors = ["Jamie Kyle <me@thejameskyle.com>"]
