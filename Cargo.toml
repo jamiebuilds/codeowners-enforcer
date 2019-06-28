@@ -4,6 +4,16 @@ version = "0.1.0" # generated
 authors = ["Jamie Kyle <me@thejameskyle.com>"]
 edition = "2018"
 
+exclude = [
+  "package.json",
+  "package-lock.json",
+  "azure-pipelines-yml",
+  "scripts",
+  "ci",
+  "CODEOWNERS",
+  ".purposefile"
+]
+
 [dependencies]
 clap = "2.33.0"
 ignore = "0.4.7"

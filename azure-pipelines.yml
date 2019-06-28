@@ -9,7 +9,6 @@ jobs:
     displayName: "Run codeowners-enforcer tests, fmt, and clippy"
     steps:
       - template: ci/azure-install-rust.yml
-      - template: ci/azure-install-node.yml
       - script: cargo test --locked
         displayName: "cargo test --locked"
       - script: rustup component add rustfmt
@@ -88,8 +87,11 @@ jobs:
         parameters:
           name: dist_windows
 
-  - job: deploy
+  - job: github_deploy
     dependsOn:
+      - test_codeowners_enforcer
+      - test_codeowners_enforcer_windows
+      - test_codeowners_enforcer_nightly
       - dist_linux
       - dist_darwin
       - dist_windows
@@ -146,3 +148,30 @@ jobs:
           gitHubConnection: jamiebuilds-deploy
           repositoryName: jamiebuilds/codeowners-enforcer
           assets: gh-release/*.tar.gz
+  - job: cargo_publish
+    displayName: Publish to crates.io
+    condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/'))
+    dependsOn:
+      - test_codeowners_enforcer
+      - test_codeowners_enforcer_windows
+      - test_codeowners_enforcer_nightly
+    steps:
+      - template: ci/azure-install-rust.yml
+      - script: cargo login $(cargoLoginToken)
+      - script: cargo package
+      - script: cargo publish
+  - job: npm_publish
+    displayName: Pubish to npm
+    condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/'))
+    dependsOn:
+      - test_codeowners_enforcer
+      - test_codeowners_enforcer_windows
+      - test_codeowners_enforcer_nightly
+      - github_deploy
+    steps:
+      - template: ci/azure-install-node.yml
+      - task: Npm@1
+        displayName: Publish to npm
+        inputs:
+          command: publish
+          publishEndpoint: jamiebuilds-npm-publish
