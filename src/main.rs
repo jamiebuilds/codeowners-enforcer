@@ -1,8 +1,3 @@
-#[macro_use]
-extern crate clap;
-extern crate codeowners;
-extern crate ignore;
-
 use ansi_term::{Colour, Style};
 use clap::{App, Arg};
 use ignore::overrides::OverrideBuilder;
@@ -81,7 +76,7 @@ fn codeowners_enforcer(
 fn main() -> Result<(), Box<dyn Error>> {
     // Definition of CLI (https://docs.rs/clap/2.33.0/clap/)
     let matches = App::new("codeowners-enforcer")
-        .version(crate_version!())
+        .version(clap::crate_version!())
         .author("Jamie Kyle <me@thejameskyle.com>")
         .about("Enforces every file has owners")
         .setting(clap::AppSettings::ColoredHelp)

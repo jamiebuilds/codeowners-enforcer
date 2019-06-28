@@ -114,7 +114,6 @@ jobs:
       - script: |
           set -ex
           mkdir -p gh-release
-          find .
           tag=$(git tag -l --points-at HEAD)
           sha=$(git rev-parse --short HEAD)
           ref=${tag:-$sha}
