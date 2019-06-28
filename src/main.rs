@@ -62,8 +62,15 @@ fn codeowners_enforcer(
         let path = file.into_path();
         let owners = codeowners.of(&path); // Find the owner of the file
 
-        if owners.is_none() {
-            unowned_files.push(path);
+        match owners {
+            None => {
+                unowned_files.push(path);
+            },
+            Some(owners) => {
+                if owners.is_empty() {
+                    unowned_files.push(path);
+                }
+            }
         }
     }
 
