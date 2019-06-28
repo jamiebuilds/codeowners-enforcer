@@ -65,7 +65,7 @@ fn codeowners_enforcer(
         match owners {
             None => {
                 unowned_files.push(path);
-            },
+            }
             Some(owners) => {
                 if owners.is_empty() {
                     unowned_files.push(path);
