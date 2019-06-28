@@ -1,6 +1,6 @@
 {
   "name": "codeowners-enforcer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Enforce CODEOWNERS files on your repo",
   "author": "Jamie Kyle <me@thejameskyle.com>",
   "license": "MIT",
