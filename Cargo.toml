@@ -1,8 +1,13 @@
 [package]
 name = "codeowners-enforcer"
+description = "Enforce CODEOWNERS files on your repo"
 version = "1.0.0" # generated
+homepage = "https://github.com/jamiebuilds/codeowners-enforcer"
+repository = "https://github.com/jamiebuilds/codeowners-enforcer"
 authors = ["Jamie Kyle <me@thejameskyle.com>"]
 edition = "2018"
+license = "MIT"
+categories = ["cli", "git"]
 
 exclude = [
   "package.json",
