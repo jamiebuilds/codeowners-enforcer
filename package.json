@@ -26,13 +26,13 @@
   ],
   "repository": "jamiebuilds/codeowners-enforcer",
   "bin": {
-    "codeowners-enforcer": "./vendor/codeowners-enforcer"
+    "codeowners-enforcer": "./lib/cli.js"
   },
   "files": [
-    "install.js"
+    "lib"
   ],
   "scripts": {
-    "postinstall": "./install.js",
+    "postinstall": "./lib/install.js",
     "version": "./scripts/version.sh"
   },
   "dependencies": {
