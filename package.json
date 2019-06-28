@@ -26,13 +26,16 @@
   ],
   "repository": "jamiebuilds/codeowners-enforcer",
   "bin": {
-    "codeowners-enforcer": "./target/release/codeowners-enforcer"
+    "codeowners-enforcer": "./vendor/codeowners-enforcer"
   },
   "files": [
-    "./target/release/codeowners-enforcer"
+    "install.js"
   ],
   "scripts": {
+    "postinstall": "./install.js",
     "version": "./scripts/version.sh"
   },
-  "dependencies": {}
+  "dependencies": {
+    "bin-wrapper": "^4.1.0"
+  }
 }
