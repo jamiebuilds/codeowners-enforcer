@@ -1,6 +1,6 @@
 [package]
 name = "codeowners-enforcer"
-version = "0.1.0" # generated
+version = "1.0.0" # generated
 authors = ["Jamie Kyle <me@thejameskyle.com>"]
 edition = "2018"
 
