@@ -13,8 +13,8 @@ exclude = [
   "package.json",
   "package-lock.json",
   "azure-pipelines-yml",
-  "scripts",
-  "ci",
+  "scripts/*",
+  "ci/*",
   "CODEOWNERS",
   ".purposefile"
 ]
