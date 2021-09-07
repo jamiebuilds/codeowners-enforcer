@@ -40,11 +40,15 @@ fn codeowners_enforcer(
         override_builder.add(&format!("!{}", ignore_pattern))?;
     }
 
+    // Always ignore .git directory
+    override_builder.add("!.git/*")?;
+
     let overrides = override_builder.build()?;
 
     // Create iterator that walks the file system using the search+ignore patterns
     let walker = WalkBuilder::new(&cwd)
         .add_custom_ignore_filename(".codeownersignore")
+        .hidden(false)
         .parents(false)
         .git_global(false)
         .overrides(overrides)
