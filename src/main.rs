@@ -41,7 +41,7 @@ fn codeowners_enforcer(
     }
 
     // Always ignore .git directory
-    override_builder.add("!.git/*")?;
+    override_builder.add("!.git")?;
 
     let overrides = override_builder.build()?;
 
