@@ -98,7 +98,7 @@ fn main() -> Result<(), Box<dyn Error>> {
                 .short("i")
                 .multiple(true)
                 .value_name("PATTERN")
-                .help("Ignore some file patterns"),
+                .help("Ignore some file patterns. You can also use a .codeownersignore file to ignore many files."),
         )
         .arg(
             Arg::with_name("quiet")
