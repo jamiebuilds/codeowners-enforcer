@@ -76,6 +76,9 @@ codeowners-enforcer -i "path/**/*.py" -i "path/**/*.sh"
 one.txt
 ```
 
+Alternatively, you can create a `.codeownersignore` file in your repository.
+The file uses the same [syntax as a `.gitignore` file](https://git-scm.com/docs/gitignore#_pattern_format).
+
 If you want to only check certain files, pass `<patterns...>`:
 
 ```sh
